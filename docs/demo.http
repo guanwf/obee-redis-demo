@@ -1,0 +1,13 @@
+
+###
+POST http://127.0.0.1:8080/demo/search
+Content-Type: application/json;charset=UTF-8
+
+{
+  "id":111,
+  "username":111,
+  "city": "gz",
+  "forceRefresh": false
+}
+
+

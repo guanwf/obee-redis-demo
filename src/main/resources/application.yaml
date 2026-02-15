@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: obee-redis-demo
+
+  # 开启虚拟线程 (Spring Boot 3.2+ 关键配置)
+  threads:
+    virtual:
+      enabled: true
+
+  data:
+    redis:
+      # 基础连接配置
+      host: 127.0.0.1
+      port: 6379
+      password: abcd
+      database: 10
+
+      # 连接超时（Duration格式）
+      timeout: 10s
+
+      # Lettuce 连接池配置
+      lettuce:
+        pool:
+          # 最大活跃连接数
+          max-active: 500
+          # 最大空闲连接数
+          max-idle: 5
+          # 最小空闲连接数
+          min-idle: 1
+          # 最大等待时间（负数表示无限制）
+          max-wait: 3000ms
+          # 连接空闲多久后释放（可选）
+          time-between-eviction-runs: 10s
+
+        # 关闭超时（可选）
+        shutdown-timeout: 100ms
+
+app:
+  cache:
+    enabled: true
+    prefix: "prod:v1:"
+    search:
+      ttl: 600  # 10分钟
